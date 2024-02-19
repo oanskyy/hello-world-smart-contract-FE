@@ -1,0 +1,56 @@
+1. Read from your smart contract
+2. Set up your Ethereum wallet 
+3. Connect MetaMask to your UI 
+
+To read from your Smart Contract you'll need to set up successfully:
+
+- **An API connection to the Ethereum chain**
+- **A loaded instance of your smart contract**
+- **A function to call to your smart contract function**
+- **A listener to watch for updates when the data you're reading from the smart contract changes**.
+
+---
+
+**1. Establish an API connection to the Ethereum chain**
+- alchemy web3 api key in your dApp to read form the chain
+*- Alchemy Web3 endpoint*
+- included the value of the Alchemy WebSockets key and then passed our alchemyKey to createAlchemyWeb3 *to establish our Alchemy Web3 endpoint*.
+
+const alchemyKey = "wss://eth-sepolia.g.alchemy.com/v2/<YOUR-API-KEY>"
+const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
+const web3 = createAlchemyWeb3(alchemyKey); 
+
+
+**2. A loaded instance of your smart contract**
+   **(Loading your Hello-world Smart Contract)**
+   - *contract address*
+   - *its ABI,* 
+   - both of which can be found on Etherscan
+
+- A contract ABI is necessary for specifying which function a contract will invoke and ensuring that the function will return data in the format you expec . Once we've copied our contract ABI, let's save it as a JSON file called contract-abi.json in your src directory.
+*- with our contract address, ABI, and Alchemy Web3 endpoint, we can use the contract method to load an instance of our smart contract.*
+- Import your contract ABI into the interact.js file and add your contract address
+- We can now finally uncomment our *helloWorldContract variable*, and *load the smart contract* using our *AlchemyWeb3 endpoint*.
+- Now that our contract is loaded, we can implement our *loadCurrentMessage function*!
+
+
+3. **A function to call your Smart Contract Function |**
+   **(Implement loadCurrentMessage() in your interact.js file)**
+
+- make a simple async web3 call to read from our contract. Our function will return the message stored in the smart contract:
+
+export const loadCurrentMessage = async () => { 
+    const message = await helloWorldContract.methods.message().call(); 
+    return message;
+};
+
+
+...
+Note that we only want our *loadCurrentMessage* to be called once during the component's first render. We'll soon *implement addSmartContractListener* to *automatically update the UI* after the message in the smart contract changes.
+
+4. **A Listener to watch for updates when the data you're reading from the Smart Contract changes** 
+   **(Implement addSmartContractListener())**
+
+- The addSmartContractListener function will specifically listen for our Hello World smart contract's UpdatedMessages event, and update our UI to display the new message.
+- ...
+- Now that we can *read from our smart contract*, it would be great to figure out how to write to it too! However, to write to our dApp, we must first have an Ethereum wallet connected to it.

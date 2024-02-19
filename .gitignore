@@ -1,0 +1,38 @@
+# Dependency directories
+node_modules/
+
+# Build directories
+/build/
+/dist/
+/out/
+
+# Environment variables file
+.env
+
+# Logs
+*.log
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.iml
+
+# Test coverage directory
+coverage/
+
+# Temporary files
+*.tmp
+*.tmp.*
+*.swp
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Compiled TypeScript files
+*.js
+
+# Misc
+.DS_Store
