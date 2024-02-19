@@ -1,7 +1,12 @@
 1. Read from your smart contract
+   ---
 2. Set up your Ethereum wallet 
 3. Connect MetaMask to your UI 
+   ---
+4. Implement the UpdateMessage() function
 
+
+1. Read from your smart contract
 To read from your Smart Contract you'll need to set up successfully:
 
 - **An API connection to the Ethereum chain**

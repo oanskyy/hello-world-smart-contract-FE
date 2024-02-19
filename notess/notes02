@@ -1,0 +1,52 @@
+1. ## Read from your smart contract
+2. Set up your Ethereum wallet
+3. ## Connect MetaMask to your UI
+4. Implement the UpdateMessage() function
+
+**2. Set up your Ethereum wallet**
+
+- To write anything to the Ethereum chain, users must sign transactions using their virtual wallet's private keys.
+- Add ether from a Faucet:
+- To deploy our smart contract to the test network, we’ll need some fake ETH
+- To sign a transaction on the Ethereum blockchain, we’ll need some fake ETH
+
+**3. Connect MetaMask to your UI**
+3.1 The connectWallet function
+3.2 Add the connectWallet function to your HelloWorld.js UI Component
+3.3 The getCurrentWalletConnected() function
+3.4 Implement addWalletListener
+
+- first, it checks if window.Ethereum is enabled in your browser.
+- What is window.Ethereum?
+
+window.Ethereum is a global API injected by Metamask and other wallet providers that allows websites to request users' Ethereum accounts. If approved, it can read data from the blockchains the user is connected to, and suggest that the user sign messages and transactions
+
+**3.2 Add the connectWallet function to your HelloWorld.js UI Component**
+
+**3.3 The getCurrentWalletConnected() function**
+
+**3.4 Implement addWalletListener**  
+-The final step in our dApp wallet setup is implementing the wallet listener so our UI updates when our wallet's state changes, such as when the user disconnects or switches accounts.
+
+---
+
+last task: updating the message stored in our smart contract! 4. Implement the UpdateMessage() function
+
+In the updateMessage of your interact.js file, we're going to do the following:
+
+Make sure the message we wish to publish in our smart contract is valid
+Sign our transaction using Metamask
+Call this function from our HelloWorld.js frontend component
+
+- Input error handling:
+  We'll want our function to return early if there is no Metamask extension installed, there is no wallet connected (i.e., the address passed in is an empty string), or the message is an empty string.
+
+- Signing our transaction
+- Connect updateMessage() to the HelloWorld.js frontend
+
+Make your own custom dApp 🚀
+To recap, you learned how to:
+
+- Connect a Metamask wallet to your dApp project
+- Read data from your smart contract using the Alchemy Web3 API
+- Sign Ethereum transactions using Metamask
